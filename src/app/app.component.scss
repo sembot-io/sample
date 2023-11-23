@@ -1,0 +1,19 @@
+.users-list {
+  img {
+    height: 35px;
+    border-radius: 50%;
+  }
+}
+
+::ng-deep {
+  thead {
+    th {
+      padding: 8px !important;
+    }
+  }
+  tbody {
+    td {
+      padding: 8px !important;
+    }
+  }
+}

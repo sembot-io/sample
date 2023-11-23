@@ -1,0 +1,27 @@
+<mat-card *ngIf="userData" class="example-card">
+  <mat-card-header>
+    <mat-card-title *ngIf="userData.first_name || userData.last_name"
+      >{{ userData.first_name || "" }}
+      {{ userData.last_name || "" }}</mat-card-title
+    >
+    <mat-card-subtitle *ngIf="userData.email">{{
+      userData.email
+    }}</mat-card-subtitle>
+  </mat-card-header>
+  <img *ngIf="userData.avatar" mat-card-image [src]="userData.avatar" />
+  <mat-card-content *ngIf="resources$ | async">
+    Show resources:
+    <input type="checkbox" [(ngModel)]="showResources" />
+
+    <ng-container *ngIf="showResources">
+      <ul>
+        <li *ngFor="let res of resources$ | async">{{ res.name }}</li>
+      </ul>
+      <span>Number of resources: {{ (resources$ | async)?.length }}</span>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>OK</button>
+</mat-dialog-actions>
