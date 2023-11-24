@@ -26,6 +26,6 @@ export class UserDataDialogComponent implements OnInit {
   getUserData(userId: number) {
     this.sampleService
       .getUserData(userId)
-      .subscribe((res) => res.data && (this.userData = res.data));
+      .subscribe((res) => res.data && (this.userData = res));
   }
 }

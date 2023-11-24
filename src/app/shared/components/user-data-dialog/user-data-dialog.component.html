@@ -1,14 +1,18 @@
-<mat-card *ngIf="userData" class="example-card">
+<mat-card *ngIf="userData.data" class="example-card">
   <mat-card-header>
-    <mat-card-title *ngIf="userData.first_name || userData.last_name"
-      >{{ userData.first_name || "" }}
-      {{ userData.last_name || "" }}</mat-card-title
+    <mat-card-title *ngIf="userData.data.first_name || userData.data.last_name"
+      >{{ userData.data.first_name || "" }}
+      {{ userData.data.last_name || "" }}</mat-card-title
     >
-    <mat-card-subtitle *ngIf="userData.email">{{
-      userData.email
+    <mat-card-subtitle *ngIf="userData.data.email">{{
+      userData.data.email
     }}</mat-card-subtitle>
   </mat-card-header>
-  <img *ngIf="userData.avatar" mat-card-image [src]="userData.avatar" />
+  <img
+    *ngIf="userData.data.avatar"
+    mat-card-image
+    [src]="userData.data.avatar"
+  />
   <mat-card-content *ngIf="resources$ | async">
     Show resources:
     <input type="checkbox" [(ngModel)]="showResources" />
